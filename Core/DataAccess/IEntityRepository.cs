@@ -1,10 +1,11 @@
-﻿using Entities.Abstract;
+﻿
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     public interface IEntityReposityory<T> where T : class, IEntity, new()
     {// burada Tnin alabileceği değerleri kısıtladık where koşulu ile

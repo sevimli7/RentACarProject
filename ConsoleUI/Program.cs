@@ -9,13 +9,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EFCarDal());
-            BrandManager brandManager = new BrandManager(new EFBrandDal());
-            ColorManager colorManager = new ColorManager(new EFColorDal());
 
-            //  brandManager.Add(new Entities.Concrete.Brand { BrandId = 4, BrandName = "BMW" }) ;
-            // brandManager.Add(new Entities.Concrete.Brand { BrandId=5,BrandName="PORCHE"});
-            
+
 
             RentACarContext context = new RentACarContext();
 
@@ -24,8 +19,26 @@ namespace ConsoleUI
             //    Console.WriteLine(car.Description);
             //}
 
-            carManager.Add(new Car { Id=6, BrandId=2, ColorId=2, DailyPrice=0, ModelYear=2012, Description="Yeni araç"});
+            // carManager.Add(new Car { Id=6, BrandId=2, ColorId=2, DailyPrice=0, ModelYear=2012, Description="Yeni araç"});
 
+            //CarDetails(carManager);
+
+            BrandManager brandManager = new BrandManager(new EFBrandDal());
+            brandManager.Add(new Brand{ BrandId=6, BrandName="papatya"}); //-marka ekleme
+            brandManager.Update(new Brand { BrandId=1, BrandName="Tofaş" }); //- marka güncelleme
+       
+           
+
+
+
+        }
+
+        private static void CarDetails(CarManager carManager)
+        {
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.CarName + "-" + car.BrandName + "-" + car.ColorName + "-" + car.DailyPrice);
+            }
         }
     }
 }

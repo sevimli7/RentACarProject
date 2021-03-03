@@ -21,7 +21,7 @@ namespace Business.Concrete
 
         public void Delete(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Delete(color);
         }
 
         public List<Color> GetAll()
@@ -36,7 +36,7 @@ namespace Business.Concrete
 
         public void Update(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
         }
     }
 }
